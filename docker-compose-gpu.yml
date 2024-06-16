@@ -2,15 +2,13 @@ version: '3.9'
 
 
 services:
-
   server:
     build:
       context: .
       dockerfile: ./Dockerfile
     restart: unless-stopped
-    env_file: ./.env
     ports:
-      - "8000:8000"
+      - "${T2V_PORT:-8080}:8000"
     deploy:
       resources:
         reservations:
