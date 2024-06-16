@@ -14,6 +14,12 @@ opus = pipeline("translation", model="Helsinki-NLP/opus-mt-ru-en", device=device
 
 app = FastAPI()
 
+
+@app.get("/")
+async def default():
+    return "Ok"
+
+
 @app.get("/get")
 async def read_item(input: str):
     print(input)
@@ -25,6 +31,5 @@ async def read_item(input: str):
         return {"time": round(time.time() - start, 2),
                 "result": emb.tolist()}
 
-
     else:
-        return 0
+        return "Empty String"
