@@ -22,10 +22,11 @@ async def default():
 
 @app.get("/get")
 async def read_item(input: str):
-    print(input)
     if len(input) > 0:
         start = time.time()
+        input = " ".join([i[0].upper() + i[1:] for i in input.split()])
         text_en = opus(input)[0]["translation_text"]
+        print(input, "|", text_en)
         emb = clip.encode_text(text_en).astype(np.float16)
 
         return {"time": round(time.time() - start, 2), "result": emb.tolist()}
@@ -38,6 +39,7 @@ async def read_item(input: str):
 async def read_item(input: str, top: int = 100):
     print(input)
     if len(input) > 0:
+        input = " ".join([i[0].upper() + i[1:] for i in input.split()])
         start = time.time()
         text_en = opus(input)[0]["translation_text"]
         emb = clip.encode_text(text_en).astype(np.float16)
