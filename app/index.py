@@ -2,9 +2,9 @@ import ngtpy
 import clickhouse_connect
 import os
 
-host = os.environ["CLICKHOUSE_HOST"]
-user = os.environ["CLICKHOUSE_USER"]
-pasw = os.environ["CLICKHOUSE_PASSWORD"]
+#host = os.environ["CLICKHOUSE_HOST"]
+#user = os.environ["CLICKHOUSE_USER"]
+#pasw = os.environ["CLICKHOUSE_PASSWORD"]
 
 
 DIM = 768

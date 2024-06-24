@@ -3,7 +3,7 @@ import torch
 import time
 from transformers import AutoModel, pipeline
 from fastapi import FastAPI, BackgroundTasks
-from .index import update_index, get_top
+#from .index import update_index, get_top
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 clip = AutoModel.from_pretrained("jinaai/jina-clip-v1", trust_remote_code=True).to(
